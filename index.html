@@ -50,13 +50,6 @@
         /* ===================================
            画像スタイル
         =================================== */
-        .fv-img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
         .diagram-img {
             width: 100%;
             height: auto;
@@ -116,34 +109,87 @@
         }
 
         /* -----------------------------------
-           1. ファーストビュー (FV)
+           1. ファーストビュー (FV) [背景:正方形画像の上にテキストを重ねる] 
         ------------------------------------ */
-        .fv-section {
+        .fv-section-square {
+            width: 100%;
             background-color: #1a365d;
-            color: #ffffff;
-            text-align: center;
-            padding: 60px 20px 50px;
+            padding: 0; /* 背景コンテナでパディングを管理 */
+            position: relative;
         }
+        
+        .fv-background-square {
+            /* 背景画像の設定 */
+            background-image: url('FV_square.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            aspect-ratio: 1 / 1; /* 正方形を維持 */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        /* 文字を読みやすくするための半透明オーバーレイ */
+        .fv-background-square::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 26, 47, 0.6); /* 暗いオーバーレイ */
+            z-index: 1;
+        }
+        
+        /* コンテンツをオーバーレイの上に配置 */
+        .fv-content-wrapper {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+            max-width: 800px; /* PCでの最大幅 */
+        }
+        
+        .fv-top-target-wrapper {
+            margin-bottom: 20px;
+        }
+        
         .fv-target {
             color: #ecc94b;
             font-size: 0.9em;
             font-weight: bold;
-            margin-bottom: 15px;
-            display: inline-block;
             border: 1px solid #ecc94b;
             padding: 5px 18px;
             border-radius: 20px;
+            display: inline-block;
         }
+        
         .fv-title {
             font-size: 1.7em;
             line-height: 1.4;
             margin-bottom: 25px;
             font-weight: bold;
         }
+        
         .fv-subtitle {
             font-size: 1em;
             opacity: 0.9;
             margin-bottom: 35px;
+        }
+        
+        /* スマホ用メディアクエリ */
+        @media (max-width: 600px) {
+            .fv-title {
+                font-size: 1.5em;
+            }
+            .fv-subtitle {
+                font-size: 0.9em;
+            }
         }
 
         /* -----------------------------------
@@ -161,7 +207,8 @@
             border-radius: 12px;
             box-shadow: 0 5px 10px rgba(221, 107, 32, 0.4);
             transition: all 0.3s ease;
-            margin: 25px 0;
+            margin: 25px auto; /* 中央揃え */
+            max-width: 320px; /* PCでの最大幅 */
             position: relative;
             z-index: 2;
         }
@@ -190,7 +237,7 @@
             position: relative;
             padding-left: 40px;
             margin-bottom: 25px;
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: #4a5568;
         }
         .checklist li::before {
@@ -210,7 +257,7 @@
            3. 解決策
         ------------------------------------ */
         .solution-text {
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: #4a5568;
             max-width: 520px;
             margin: 0 auto;
@@ -322,17 +369,21 @@
 
 <div class="lp-wrapper">
 
-    <section class="fv-section">
-        <div class="js-scroll-trigger is-active"> <span class="fv-target">単発セッションの限界を感じているコーチ・カウンセラーへ</span>
-            <h1 class="fv-title">クライアントが元に戻ってしまうのは、あなたのスキル不足ではありません。<br>「根本から変える仕組み」が、まだないだけです。</h1>
-            <p class="fv-subtitle">脳のしくみ×経営視点で、本当の意味で人の人生を変えられるプロフェッショナルへ。</p>
-            
-            <img src="ファーストビュー.png" alt="脳のしくみと経営視点の融合" class="fv-img">
-
-            <a href="https://lin.ee/PGEEM0W" class="cta-button">
-                【限定5名・無料】<br>個別診断＆ロードマップ作成に申し込む
-            </a>
-            <p class="cta-note">※オンライン（Zoom）50分</p>
+    <section class="fv-section-square">
+        <div class="fv-background-square" style="background-image: url('FV_square.png');">
+            <div class="fv-content-wrapper js-scroll-trigger is-active"> <div class="fv-top-target-wrapper">
+                    <span class="fv-target">単発セッションの限界を感じているコーチ・カウンセラーへ</span>
+                </div>
+                
+                <h1 class="fv-title">クライアントが元に戻ってしまうのは、あなたのスキル不足ではありません。</h1>
+                
+                <p class="fv-subtitle">脳のしくみ×経営視点で、本当の意味で人の人生を変えられるプロフェッショナルへ。</p>
+                
+                <a href="https://lin.ee/PGEEM0W" class="cta-button">
+                    【限定5名・無料】<br>個別診断＆ロードマップ作成に申し込む
+                </a>
+                <p class="cta-note">※オンライン（Zoom）50分</p>
+            </div>
         </div>
     </section>
 
@@ -342,7 +393,7 @@
             <li class="js-scroll-trigger">セッション直後は良くても、次回にはクライアントが元の状態に戻っている</li>
             <li class="js-scroll-trigger">自分が本当の意味でクライアントを変えられているか自信がない</li>
             <li class="js-scroll-trigger">毎回フロント集客に追われ、ビジネスとして安定しない</li>
-            <li class="js-scroll-trigger">バックエンド商品を作りたいが、何を提供すればいいか迷っている</li>
+            <li class="js-scroll-trigger">バックエンド商品を作りたいが, 何を提供すればいいか迷っている</li>
         </ul>
     </section>
 
@@ -411,7 +462,7 @@
 
             <div class="warning-box">
                 <strong>【お申し込み前の確認事項】</strong><br>
-                本気でクライアントを変えたいと願い、自己投資と行動への覚悟がある方を対象としています。そのため、現在ゼロイチの段階で行動量が伴わない方や、集客が全くできていない方のお申し込みは、原則お断りしております。（現状の課題解決に直結しないためです。何卒ご了承ください）
+                本気でクライアントを変えたいと願い, 自己投資と行動への覚悟がある方を対象としています。そのため, 現在ゼロイチの段階で行動量が伴わない方や, 集客が全くできていない方のお申し込みは, 原則お断りしております。（現状の課題解決に直結しないためです。何卒ご了承ください）
             </div>
         </div>
     </section>
@@ -425,7 +476,7 @@
             <a href="https://lin.ee/PGEEM0W" class="cta-button">
                 【限定5名・無料】<br>個別診断＆ロードマップ作成に申し込む
             </a>
-            <p class="cta-note" style="color:#cbd5e0;">※枠が埋まり次第、今月の受付は終了となります。</p>
+            <p class="cta-note" style="color:#cbd5e0;">※枠が埋まり次第, 今月の受付は終了となります。</p>
         </div>
     </section>
 
