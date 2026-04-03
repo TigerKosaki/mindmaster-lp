@@ -82,9 +82,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* 少し遅れて発火させるデレイ用クラス */
-        .delay-1 { transition-delay: 0.2s; }
-        .delay-2 { transition-delay: 0.4s; }
 
         /* ===================================
            セクション別スタイル
@@ -109,22 +106,21 @@
         }
 
         /* -----------------------------------
-           1. ファーストビュー (FV) [背景:正方形画像の上にテキストを重ねる] 
+           1. ファーストビュー (FV)
         ------------------------------------ */
         .fv-section-square {
             width: 100%;
             background-color: #1a365d;
-            padding: 0; /* 背景コンテナでパディングを管理 */
+            padding: 0;
             position: relative;
         }
         
         .fv-background-square {
-            /* 背景画像の設定 */
-            background-image: url('FV_square.png');
+            background-image: url('ファーストビュー.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            aspect-ratio: 1 / 1; /* 正方形を維持 */
+            aspect-ratio: 1 / 1;
             position: relative;
             display: flex;
             justify-content: center;
@@ -133,7 +129,6 @@
             z-index: 1;
         }
         
-        /* 文字を読みやすくするための半透明オーバーレイ */
         .fv-background-square::before {
             content: '';
             position: absolute;
@@ -141,18 +136,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 26, 47, 0.6); /* 暗いオーバーレイ */
+            background-color: rgba(10, 26, 47, 0.6);
             z-index: 1;
         }
         
-        /* コンテンツをオーバーレイの上に配置 */
         .fv-content-wrapper {
             position: relative;
             z-index: 2;
             text-align: center;
             padding: 20px;
             color: #ffffff;
-            max-width: 800px; /* PCでの最大幅 */
+            max-width: 800px;
         }
         
         .fv-top-target-wrapper {
@@ -182,7 +176,6 @@
             margin-bottom: 35px;
         }
         
-        /* スマホ用メディアクエリ */
         @media (max-width: 600px) {
             .fv-title {
                 font-size: 1.5em;
@@ -193,7 +186,7 @@
         }
 
         /* -----------------------------------
-           CTAボタン（共通）
+           CTAボタン（キラッと光るアニメーション追加）
         ------------------------------------ */
         .cta-button {
             display: block;
@@ -207,11 +200,33 @@
             border-radius: 12px;
             box-shadow: 0 5px 10px rgba(221, 107, 32, 0.4);
             transition: all 0.3s ease;
-            margin: 25px auto; /* 中央揃え */
-            max-width: 320px; /* PCでの最大幅 */
+            margin: 25px auto;
+            max-width: 320px;
             position: relative;
             z-index: 2;
+            overflow: hidden; /* 光がボタンからはみ出ないようにする */
         }
+
+        /* 光の帯を定義 */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 40px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(30deg);
+            animation: shiny-effect 4s infinite; /* 4秒に1回光る */
+        }
+
+        /* キラッと光るアニメーションの動き */
+        @keyframes shiny-effect {
+            0% { left: -100%; }
+            15% { left: 200%; } /* 0〜15%の時間で左から右へ走り抜ける */
+            100% { left: 200%; } /* 残りの時間は待機 */
+        }
+
         .cta-button:hover {
             background-color: #c05621;
             transform: translateY(-3px);
@@ -225,7 +240,7 @@
         }
 
         /* -----------------------------------
-           2, 4. 悩み/ベネフィット（チェックリスト）
+           2, 4. 悩み/ベネフィット
         ------------------------------------ */
         .checklist {
             list-style: none;
@@ -328,10 +343,9 @@
         }
 
         /* -----------------------------------
-           6. 最終CTA（背景画像あり・ドラマチック）
+           6. 最終CTA（背景画像あり）
         ------------------------------------ */
         .final-cta-section {
-            /* 背景画像の設定 */
             background-image: url('背景画像.png');
             background-size: cover;
             background-position: center;
@@ -341,7 +355,6 @@
             padding: 80px 20px 100px;
             position: relative;
         }
-        /* 文字を読みやすくするための半透明オーバーレイ */
         .final-cta-section::before {
             content: '';
             position: absolute;
@@ -349,10 +362,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 26, 47, 0.75); /* ネイビー系の濃いフィルター */
+            background-color: rgba(10, 26, 47, 0.75);
             z-index: 1;
         }
-        /* コンテンツをオーバーレイの上に配置 */
         .final-cta-section .content-wrapper {
             position: relative;
             z-index: 2;
@@ -369,9 +381,11 @@
 
 <div class="lp-wrapper">
 
+    <!-- ▼ファーストビュー▼ -->
     <section class="fv-section-square">
-        <div class="fv-background-square" style="background-image: url('FV_square.png');">
-            <div class="fv-content-wrapper js-scroll-trigger is-active"> <div class="fv-top-target-wrapper">
+        <div class="fv-background-square">
+            <div class="fv-content-wrapper js-scroll-trigger is-active">
+                <div class="fv-top-target-wrapper">
                     <span class="fv-target">単発セッションの限界を感じているコーチ・カウンセラーへ</span>
                 </div>
                 
@@ -387,16 +401,18 @@
         </div>
     </section>
 
+    <!-- ▼悩み・共感▼ -->
     <section class="pain-section bg-grid">
-        <h2 class="section-title js-scroll-trigger">こんなジレンマを抱えていませんカ？</h2>
+        <h2 class="section-title js-scroll-trigger">こんなジレンマを抱えていませんか？</h2>
         <ul class="checklist">
             <li class="js-scroll-trigger">セッション直後は良くても、次回にはクライアントが元の状態に戻っている</li>
             <li class="js-scroll-trigger">自分が本当の意味でクライアントを変えられているか自信がない</li>
             <li class="js-scroll-trigger">毎回フロント集客に追われ、ビジネスとして安定しない</li>
-            <li class="js-scroll-trigger">バックエンド商品を作りたいが, 何を提供すればいいか迷っている</li>
+            <li class="js-scroll-trigger">バックエンド商品を作りたいが、何を提供すればいいか迷っている</li>
         </ul>
     </section>
 
+    <!-- ▼解決策▼ -->
     <section class="solution-section bg-white">
         <div class="content-wrapper solution-text js-scroll-trigger">
             <h2 class="section-title">なぜ、熱心にセッションをしても変わらないのか？</h2>
@@ -409,6 +425,7 @@
         </div>
     </section>
 
+    <!-- ▼ベネフィット▼ -->
     <section class="benefit-section bg-grid">
         <h2 class="section-title js-scroll-trigger">個別診断で得られる3つのこと</h2>
         <ul class="checklist">
@@ -427,6 +444,7 @@
         </ul>
     </section>
 
+    <!-- ▼プロフィール/募集要項▼ -->
     <section class="profile-section bg-white">
         <div class="js-scroll-trigger">
             <h2 class="section-title">プロフィール</h2>
@@ -462,11 +480,12 @@
 
             <div class="warning-box">
                 <strong>【お申し込み前の確認事項】</strong><br>
-                本気でクライアントを変えたいと願い, 自己投資と行動への覚悟がある方を対象としています。そのため, 現在ゼロイチの段階で行動量が伴わない方や, 集客が全くできていない方のお申し込みは, 原則お断りしております。（現状の課題解決に直結しないためです。何卒ご了承ください）
+                本気でクライアントを変えたいと願い、自己投資と行動への覚悟がある方を対象としています。そのため、現在ゼロイチの段階で行動量が伴わない方や、集客が全くできていない方のお申し込みは、原則お断りしております。（現状の課題解決に直結しないためです。何卒ご了承ください）
             </div>
         </div>
     </section>
 
+    <!-- ▼最終CTA▼ -->
     <section class="final-cta-section">
         <div class="content-wrapper js-scroll-trigger">
             <h2 class="final-title">あなたのスキルを、<br>本当の「結果」に変えませんか？</h2>
@@ -476,34 +495,27 @@
             <a href="https://lin.ee/PGEEM0W" class="cta-button">
                 【限定5名・無料】<br>個別診断＆ロードマップ作成に申し込む
             </a>
-            <p class="cta-note" style="color:#cbd5e0;">※枠が埋まり次第, 今月の受付は終了となります。</p>
+            <p class="cta-note" style="color:#cbd5e0;">※枠が埋まり次第、今月の受付は終了となります。</p>
         </div>
     </section>
 
 </div>
 
 <script>
-    // 画面内に入ったらクラスを追加する関数（Intersection Observer）
     const targets = document.querySelectorAll('.js-scroll-trigger');
-    
     const options = {
-        root: null, // ビューポートをルートにする
-        rootMargin: '-10% 0px', // 画面の上下10%に入ったら発火
-        threshold: 0 // 1pxでも入ったら発火
+        root: null,
+        rootMargin: '-10% 0px',
+        threshold: 0
     };
-    
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // 画面に入ったら 'is-active' クラスを追加
                 entry.target.classList.add('is-active');
-                // 一度表示したら監視をやめる（パフォーマンス向上）
                 observer.unobserve(entry.target);
             }
         });
     }, options);
-    
-    // すべての対象要素を監視
     targets.forEach(target => {
         observer.observe(target);
     });
