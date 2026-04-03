@@ -40,14 +40,14 @@
             margin: 25px 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        /* ▼▼ プロフィール画像の設定を修正（全身が映るように縦横比を維持） ▼▼ */
         .profile-img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
+            max-width: 240px; /* 大きくなりすぎないように最大幅を指定 */
+            width: 100%;
+            height: auto; /* 元の画像の縦横比を維持 */
+            border-radius: 12px; /* 丸型ではなく、角を少し丸めて柔らかい印象に */
             margin: 0 auto 20px;
             display: block;
-            border: 4px solid #ffffff;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         /* -----------------------------------
