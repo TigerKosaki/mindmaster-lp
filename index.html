@@ -25,16 +25,30 @@
         section {
             padding: 40px 20px;
         }
-        /* 画像プレースホルダーのスタイル */
-        .image-placeholder {
-            background-color: #e2e8f0;
-            border: 2px dashed #a0aec0;
-            color: #4a5568;
-            text-align: center;
-            padding: 50px 20px;
-            margin: 20px 0;
+        /* 画像のスタイル設定 */
+        .fv-img {
+            width: 100%;
+            height: auto;
             border-radius: 8px;
-            font-weight: bold;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .diagram-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         /* -----------------------------------
            ファーストビュー (FV)
@@ -199,10 +213,10 @@
         <h1 class="fv-title">クライアントが元に戻ってしまうのは、あなたのスキル不足ではありません。<br>「根本から変える仕組み」が、まだないだけです。</h1>
         <p class="fv-subtitle">脳のしくみ×経営視点で、本当の意味で人の人生を変えられるプロフェッショナルへ。</p>
         
-            <div>
-            <img src="A_high-quality_professional_landing_page_backgrou-1775190222514.png" alt="イメージ" style="width:100%;"> 
-        </div>
+        <!-- ファーストビュー画像 -->
+        <img src="A_high-quality_professional_landing_page_backgrou-1775190222514.png" alt="脳のしくみと経営視点の融合" class="fv-img">
 
+        <!-- 申込フォームリンク -->
         <a href="https://lin.ee/PGEEM0W" class="cta-button">
             【限定5名・無料】<br>個別診断＆ロードマップ作成に申し込む
         </a>
@@ -226,10 +240,8 @@
         <p>それはあなたの思いやりの不足でも、クライアントのやる気不足でもありません。<br><br>
         <span class="highlight">「脳のしくみに基づいた根本解決の型」</span>と<span class="highlight">「バックエンドの仕組み」</span>の両方が欠けているからです。</p>
 
-
-        <div>
-            <img src=A_clean_modern_infographic_illustration_comparing-1775212108844.png><br>
-        </div>
+        <!-- 図解画像 -->
+        <img src="A_clean_modern_infographic_illustration_comparing-1775212108844.png" alt="単発セッションと根本解決の違い" class="diagram-img">
 
         <p>総合商社17年で培った「経営・仕組み化の視点」と、900名以上との対話・800ページの図解から生まれた「脳のしくみ」。この2つを掛け合わせることで、クライアントを根本から変え、あなた自身のビジネスも安定させることができます。</p>
     </section>
@@ -248,9 +260,9 @@
     <section class="profile-section">
         <h2 class="section-title">プロフィール</h2>
         <div class="profile-box">
-            <div>
-                <img src=0Z1A8594_解像度下げ - コピー.JPG><br>
-            </div>
+            <!-- プロフィール画像 -->
+            <img src="0Z1A8594_解像度下げ - コピー.JPG" alt="たいが プロフィール" class="profile-img">
+            
             <div class="profile-name">たいが｜脳のしくみで人生を設計する</div>
             <p>■ 総合商社17年 → シリコンバレー → 独立<br>
             ■ 脳のしくみで「人生の設計図」をつくる<br>
@@ -287,6 +299,7 @@
     <section class="fv-section" style="padding-top: 40px; padding-bottom: 60px;">
         <h2 style="font-size: 1.4em; margin-bottom: 20px;">あなたのスキルを、<br>本当の「結果」に変えませんか？</h2>
         
+        <!-- 申込フォームリンク -->
         <a href="https://lin.ee/PGEEM0W" class="cta-button">
             【限定5名・無料】<br>個別診断＆ロードマップ作成に申し込む
         </a>
