@@ -1,1837 +1,307 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>個別診断＆ロードマップ作成セッション｜たいが（神前智憲）</title>
-  <meta name="description" content="単発セッションの限界を感じているコーチ・カウンセラーへ。脳のしくみ×経営視点で、あなたのビジネスの現在地と次の一手を50分で明確にします。" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;700;800&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ============================================================
-       CSS VARIABLES & RESET
-    ============================================================ */
-    :root {
-      --navy:       #1a2744;
-      --navy-deep:  #0f1a30;
-      --navy-light: #243260;
-      --gold:       #b8973a;
-      --gold-light: #d4af5a;
-      --gold-pale:  #f5edd8;
-      --orange:     #e85d04;
-      --orange-hover: #c94e00;
-      --white:      #ffffff;
-      --off-white:  #f9f7f3;
-      --gray-light: #eee9e0;
-      --gray-mid:   #c8c0b0;
-      --text-dark:  #1a1a1a;
-      --text-mid:   #4a4a4a;
-
-      --font-serif: 'Shippori Mincho', 'Noto Serif JP', serif;
-      --font-sans:  'Noto Sans JP', sans-serif;
-
-      --max-w: 860px;
-      --section-py: clamp(64px, 10vw, 120px);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--off-white);
-      color: var(--text-dark);
-      line-height: 1.9;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { display: block; max-width: 100%; height: auto; }
-    a { color: inherit; text-decoration: none; }
-
-    /* ============================================================
-       UTILITY
-    ============================================================ */
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .section-label {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 700;
-      line-height: 1.55;
-      color: var(--navy);
-    }
-
-    .section-title-white {
-      font-family: var(--font-serif);
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 700;
-      line-height: 1.55;
-      color: var(--white);
-    }
-
-    .gold-line {
-      width: 48px;
-      height: 2px;
-      background: var(--gold);
-      margin: 20px 0 32px;
-    }
-
-    /* CTA Button */
-    .btn-cta {
-      display: inline-block;
-      background: var(--orange);
-      color: var(--white);
-      font-family: var(--font-sans);
-      font-size: clamp(15px, 2.5vw, 18px);
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      padding: 20px 48px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(232, 93, 4, 0.35);
-      text-align: center;
-      line-height: 1.5;
-    }
-    .btn-cta:hover {
-      background: var(--orange-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(232, 93, 4, 0.45);
-    }
-    .btn-cta small {
-      display: block;
-      font-size: 12px;
-      font-weight: 400;
-      opacity: 0.85;
-      margin-top: 4px;
-    }
-
-    /* Divider */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--gray-light);
-      margin: 0;
-    }
-
-    /* Fade-in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============================================================
-       STICKY HEADER
-    ============================================================ */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(26, 39, 68, 0.97);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(184, 151, 58, 0.3);
-    }
-    .site-header .inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .site-header .logo {
-      font-family: var(--font-serif);
-      font-size: 14px;
-      color: var(--gold);
-      letter-spacing: 0.05em;
-    }
-    .site-header .header-cta {
-      background: var(--orange);
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 8px 20px;
-      border-radius: 3px;
-      letter-spacing: 0.03em;
-      transition: background 0.2s;
-    }
-    .site-header .header-cta:hover { background: var(--orange-hover); }
-
-
-    /* ============================================================
-       BLOCK 1 | HERO
-    ============================================================ */
-    .hero {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-      padding: clamp(72px, 12vw, 140px) 0 clamp(64px, 10vw, 120px);
-    }
-
-    /* 背景テクスチャ */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 50% at 80% 30%, rgba(184,151,58,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(184,151,58,0.05) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    /* 右側の装飾ライン */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-      opacity: 0.5;
-    }
-
-    .hero .container { position: relative; }
-
-    .hero-eyebrow {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-eyebrow::after {
-      content: '';
-      flex: 1;
-      max-width: 60px;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.5;
-    }
-
-    .hero-target {
-      font-family: var(--font-sans);
-      font-size: clamp(13px, 2vw, 15px);
-      color: rgba(255,255,255,0.7);
-      background: rgba(184,151,58,0.15);
-      border: 1px solid rgba(184,151,58,0.3);
-      display: inline-block;
-      padding: 8px 20px;
-      border-radius: 2px;
-      margin-bottom: 32px;
-      letter-spacing: 0.05em;
-    }
-
-    .hero-catch {
-      font-family: var(--font-serif);
-      font-size: clamp(28px, 6vw, 52px);
-      font-weight: 800;
-      line-height: 1.45;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .hero-catch .accent {
-      color: var(--gold);
-      position: relative;
-    }
-
-    .hero-sub {
-      font-size: clamp(14px, 2vw, 17px);
-      color: rgba(255,255,255,0.75);
-      line-height: 1.8;
-      margin: 28px 0 48px;
-      max-width: 600px;
-    }
-
-    /* ── ヒーロー画像エリア ─────────────────
-       📌 IMAGE_01: ヒーロービジュアル
-       推奨: たいがさんのプロフェッショナルな写真
-       or セッション風景・ノートPC前でのショット
-       推奨サイズ: 横1200px以上 / 縦比4:3または16:9
-       ファイル: images/hero-visual.jpg に配置
-    ─────────────────────────────────────── -->
-    .hero-image-wrap {
-      margin: 40px 0 48px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid rgba(184,151,58,0.25);
-      background: rgba(255,255,255,0.05);
-      /* 画像挿入後はこの最小高さを削除してください */
-      min-height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-image-placeholder {
-      /* 画像が入ったらこのdivごと削除してください */
-      padding: 40px;
-      text-align: center;
-      color: rgba(255,255,255,0.3);
-      font-size: 13px;
-      letter-spacing: 0.1em;
-      border: 2px dashed rgba(184,151,58,0.3);
-      width: 100%;
-      margin: 8px;
-      border-radius: 6px;
-    }
-    .hero-image-placeholder span {
-      display: block;
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .hero-session-badge {
-      display: flex;
-      align-items: stretch;
-      gap: 0;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(184,151,58,0.25);
-      border-radius: 6px;
-      overflow: hidden;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .badge-item {
-      flex: 1;
-      min-width: 140px;
-      padding: 20px 24px;
-      text-align: center;
-      border-right: 1px solid rgba(184,151,58,0.15);
-    }
-    .badge-item:last-child { border-right: none; }
-    .badge-item .badge-val {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--gold);
-      display: block;
-    }
-    .badge-item .badge-label {
-      font-size: 11px;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.05em;
-    }
-
-    .hero-cta-wrap {
-      text-align: center;
-    }
-
-    /* ──────────────────────────────────────
-       📌 LINK_01: ヒーロー申込ボタン
-       href="YOUR_FORM_URL_HERE" を申込フォームのURLに変更
-    ────────────────────────────────────── */
-    .hero-cta-wrap .btn-cta {
-      width: 100%;
-      max-width: 480px;
-    }
-
-    .hero-note {
-      margin-top: 14px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.45);
-      text-align: center;
-      letter-spacing: 0.05em;
-    }
-
-
-    /* ============================================================
-       BLOCK 2 | 共感（痛み）
-    ============================================================ */
-    .pain {
-      background: var(--white);
-      padding: var(--section-py) 0;
-    }
-
-    .pain-list {
-      list-style: none;
-      margin-top: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .pain-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      background: var(--off-white);
-      border-left: 3px solid var(--gold);
-      padding: 20px 24px;
-      border-radius: 0 4px 4px 0;
-      font-size: clamp(14px, 2vw, 16px);
-      line-height: 1.7;
-      color: var(--text-mid);
-    }
-    .pain-list li::before {
-      content: '□';
-      font-size: 18px;
-      color: var(--gold);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .pain-closing {
-      margin-top: 48px;
-      padding: 32px 36px;
-      background: var(--navy);
-      border-radius: 6px;
-      color: var(--white);
-      font-family: var(--font-serif);
-      font-size: clamp(16px, 2.5vw, 20px);
-      line-height: 1.75;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .pain-closing::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(184,151,58,0.08), transparent 70%);
-    }
-    .pain-closing p { position: relative; }
-    .pain-closing .em { color: var(--gold); font-weight: 700; }
-
-
-    /* ============================================================
-       BLOCK 3 | 原因提示
-    ============================================================ */
-    .cause {
-      background: var(--off-white);
-      padding: var(--section-py) 0;
-    }
-
-    .cause-body {
-      margin-top: 32px;
-      font-size: clamp(14px, 2vw, 16px);
-      color: var(--text-mid);
-      line-height: 1.95;
-    }
-
-    .cause-highlight {
-      margin: 36px 0;
-      padding: 32px 36px;
-      border: 1px solid var(--gold);
-      border-radius: 6px;
-      background: var(--white);
-      position: relative;
-    }
-    .cause-highlight::before {
-      content: '"';
-      font-family: var(--font-serif);
-      font-size: 80px;
-      color: var(--gold);
-      opacity: 0.15;
-      position: absolute;
-      top: -16px; left: 16px;
-      line-height: 1;
-    }
-    .cause-highlight p {
-      font-family: var(--font-serif);
-      font-size: clamp(16px, 2.5vw, 20px);
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.7;
-      text-align: center;
-    }
-
-    .cause-result {
-      margin-top: 32px;
-    }
-    .cause-result-title {
-      font-family: var(--font-serif);
-      font-size: clamp(15px, 2vw, 18px);
-      color: var(--navy);
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .cause-result-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .cause-result-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: clamp(14px, 2vw, 15px);
-      color: var(--text-mid);
-    }
-    .cause-result-list li::before {
-      content: '';
-      width: 20px;
-      height: 20px;
-      background: var(--gold);
-      border-radius: 50%;
-      flex-shrink: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-      background-size: 12px;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-
-    /* ============================================================
-       BLOCK 4 | セッションで得られること
-    ============================================================ */
-    .benefit {
-      background: var(--navy);
-      padding: var(--section-py) 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .benefit::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(184,151,58,0.07), transparent),
-        radial-gradient(ellipse 40% 60% at 90% 20%, rgba(184,151,58,0.05), transparent);
-    }
-    .benefit .container { position: relative; }
-
-    .benefit-cards {
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .benefit-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(184,151,58,0.25);
-      border-radius: 8px;
-      padding: 32px 36px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 20px 28px;
-      align-items: start;
-      transition: background 0.25s, border-color 0.25s;
-    }
-    .benefit-card:hover {
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(184,151,58,0.5);
-    }
-
-    .benefit-num {
-      font-family: var(--font-serif);
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--gold);
-      opacity: 0.6;
-      line-height: 1;
-      margin-top: 4px;
-    }
-    .benefit-title {
-      font-family: var(--font-serif);
-      font-size: clamp(16px, 2.5vw, 20px);
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .benefit-body {
-      font-size: clamp(13px, 1.8vw, 15px);
-      color: rgba(255,255,255,0.65);
-      line-height: 1.85;
-      grid-column: 2;
-    }
-
-    .benefit-note {
-      margin-top: 40px;
-      padding: 24px 28px;
-      background: rgba(184,151,58,0.1);
-      border: 1px solid rgba(184,151,58,0.3);
-      border-radius: 6px;
-      font-size: clamp(13px, 1.8vw, 15px);
-      color: rgba(255,255,255,0.75);
-      line-height: 1.8;
-      text-align: center;
-    }
-    .benefit-note .em { color: var(--gold); font-weight: 700; }
-
-    /* CTA inside benefit section */
-    .benefit-cta {
-      margin-top: 48px;
-      text-align: center;
-    }
-
-    /* ──────────────────────────────────────
-       📌 LINK_02: 中間CTA申込ボタン
-       href="YOUR_FORM_URL_HERE" を申込フォームのURLに変更
-    ────────────────────────────────────── */
-    .benefit-cta .btn-cta {
-      width: 100%;
-      max-width: 480px;
-    }
-
-
-    /* ============================================================
-       BLOCK 5 | 提供者の強み・プロフィール
-    ============================================================ */
-    .profile {
-      background: var(--white);
-      padding: var(--section-py) 0;
-    }
-
-    .profile-inner {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 48px;
-      align-items: start;
-      margin-top: 40px;
-    }
-
-    /* ── プロフィール画像エリア ─────────────
-       📌 IMAGE_02: プロフィール写真（必須）
-       推奨: 正面から撮影した清潔感のある写真
-       推奨サイズ: 正方形 or 縦長 / 最小600×600px
-       ファイル: images/profile.jpg に配置
-    ─────────────────────────────────────── -->
-    .profile-photo {
-      width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid var(--gray-light);
-      background: var(--off-white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 8px;
-      color: var(--gray-mid);
-      font-size: 13px;
-      text-align: center;
-      padding: 16px;
-    }
-    .profile-photo span.icon { font-size: 36px; }
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .profile-label {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .profile-name {
-      font-family: var(--font-serif);
-      font-size: clamp(22px, 3vw, 28px);
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .profile-name-kana {
-      font-size: 13px;
-      color: var(--gray-mid);
-      letter-spacing: 0.1em;
-      margin-bottom: 20px;
-    }
-
-    .profile-career {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-    .career-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: clamp(13px, 1.8vw, 15px);
-      color: var(--text-mid);
-    }
-    .career-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--navy);
-      border-radius: 50%;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-    }
-
-    .profile-strengths {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .strength-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: clamp(13px, 1.8vw, 15px);
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-    .strength-item::before {
-      content: '✅';
-      flex-shrink: 0;
-      font-size: 14px;
-      margin-top: 2px;
-    }
-
-    .profile-rare {
-      margin-top: 32px;
-      padding: 24px 28px;
-      background: var(--navy);
-      border-radius: 6px;
-      font-family: var(--font-serif);
-      font-size: clamp(14px, 2vw, 17px);
-      color: var(--white);
-      line-height: 1.75;
-      text-align: center;
-    }
-    .profile-rare .gold { color: var(--gold); }
-
-
-    /* ============================================================
-       BLOCK 6 | 実績・受講生の声
-    ============================================================ */
-    .testimonials {
-      background: var(--off-white);
-      padding: var(--section-py) 0;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 32px 0 56px;
-    }
-    .stat-box {
-      background: var(--navy);
-      border-radius: 6px;
-      padding: 28px 16px;
-      text-align: center;
-    }
-    .stat-val {
-      font-family: var(--font-serif);
-      font-size: clamp(26px, 5vw, 40px);
-      font-weight: 800;
-      color: var(--gold);
-      display: block;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.05em;
-      line-height: 1.5;
-    }
-
-    .testimonial-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .testimonial-card {
-      background: var(--white);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(26,39,68,0.06);
-      display: grid;
-      grid-template-columns: 88px 1fr;
-    }
-
-    /* ── 受講生写真エリア ─────────────────
-       📌 IMAGE_03〜05: 受講生の写真（3件分）
-       推奨: 顔写真 or アイコン画像
-       推奨サイズ: 正方形 / 最小200×200px
-       ファイル:
-         images/voice-01.jpg
-         images/voice-02.jpg
-         images/voice-03.jpg
-       ※ 写真使用が難しい場合はイニシャルや
-         シルエット画像で代用可
-    ─────────────────────────────────────── -->
-    .testimonial-photo {
-      background: var(--navy-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 6px;
-      padding: 16px 8px;
-      color: rgba(255,255,255,0.4);
-      font-size: 10px;
-      text-align: center;
-    }
-    .testimonial-photo .t-icon { font-size: 28px; }
-    .testimonial-photo img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .testimonial-content {
-      padding: 28px 32px;
-    }
-    .testimonial-meta {
-      font-size: 12px;
-      color: var(--gray-mid);
-      letter-spacing: 0.05em;
-      margin-bottom: 10px;
-    }
-    .testimonial-meta strong {
-      color: var(--navy);
-      font-weight: 700;
-    }
-    .testimonial-quote {
-      font-size: clamp(13px, 1.8vw, 15px);
-      color: var(--text-mid);
-      line-height: 1.9;
-    }
-    .testimonial-result {
-      display: inline-block;
-      margin-top: 12px;
-      background: var(--gold-pale);
-      border-left: 3px solid var(--gold);
-      padding: 6px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-
-    /* ============================================================
-       BLOCK 7 | セッション詳細・流れ
-    ============================================================ */
-    .detail {
-      background: var(--white);
-      padding: var(--section-py) 0;
-    }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .detail-item {
-      background: var(--off-white);
-      border-radius: 6px;
-      padding: 20px 24px;
-    }
-    .detail-item-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .detail-item-val {
-      font-family: var(--font-serif);
-      font-size: clamp(15px, 2vw, 18px);
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.5;
-    }
-    .detail-item-val small {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text-mid);
-      font-family: var(--font-sans);
-    }
-
-    /* ── セッション詳細画像エリア（任意）─────
-       📌 IMAGE_06: セッション詳細セクションの補足画像（任意）
-       例: Zoomセッションの様子 / 資料イメージ / ノート画像
-       推奨サイズ: 横長 / 最小1000×500px
-       ファイル: images/session-detail.jpg
-       ※ 使わない場合はこのコメントごと削除可
-    ─────────────────────────────────────── -->
-
-    .flow-title {
-      font-family: var(--font-serif);
-      font-size: clamp(16px, 2.5vw, 20px);
-      font-weight: 700;
-      color: var(--navy);
-      margin: 48px 0 24px;
-    }
-
-    .flow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .flow-step {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 0 24px;
-      align-items: start;
-    }
-    .flow-step-left {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .flow-num {
-      width: 48px;
-      height: 48px;
-      background: var(--navy);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-    .flow-line {
-      width: 2px;
-      flex: 1;
-      min-height: 40px;
-      background: var(--gray-light);
-      margin: 4px 0;
-    }
-    .flow-step:last-child .flow-line { display: none; }
-
-    .flow-content {
-      padding: 10px 0 36px;
-    }
-    .flow-step-title {
-      font-weight: 700;
-      font-size: clamp(14px, 2vw, 16px);
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .flow-step-body {
-      font-size: clamp(13px, 1.8vw, 14px);
-      color: var(--text-mid);
-      line-height: 1.8;
-    }
-
-
-    /* ============================================================
-       BLOCK 8 | FAQ
-    ============================================================ */
-    .faq {
-      background: var(--off-white);
-      padding: var(--section-py) 0;
-    }
-
-    .faq-list {
-      margin-top: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .faq-item {
-      background: var(--white);
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid var(--gray-light);
-    }
-
-    .faq-q {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 24px 28px;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .faq-q:hover { background: var(--off-white); }
-    .faq-q-mark {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--gold);
-      flex-shrink: 0;
-      line-height: 1.3;
-    }
-    .faq-q-text {
-      font-weight: 700;
-      font-size: clamp(14px, 2vw, 16px);
-      color: var(--navy);
-      line-height: 1.6;
-      flex: 1;
-      margin-top: 2px;
-    }
-    .faq-chevron {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      fill: none;
-      stroke: var(--gray-mid);
-      stroke-width: 2;
-      stroke-linecap: round;
-      transition: transform 0.25s;
-      margin-top: 4px;
-    }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
-
-    .faq-a {
-      display: none;
-      padding: 0 28px 24px 64px;
-      font-size: clamp(13px, 1.8vw, 15px);
-      color: var(--text-mid);
-      line-height: 1.9;
-      border-top: 1px solid var(--gray-light);
-      padding-top: 20px;
-    }
-    .faq-item.open .faq-a { display: block; }
-
-
-    /* ============================================================
-       BLOCK 9 | 最終CTA
-    ============================================================ */
-    .final-cta {
-      background: var(--navy-deep);
-      padding: var(--section-py) 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 80% at 50% 50%, rgba(184,151,58,0.07), transparent 65%);
-    }
-    .final-cta .container { position: relative; }
-
-    .final-cta-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .final-cta-catch {
-      font-family: var(--font-serif);
-      font-size: clamp(22px, 4vw, 36px);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.55;
-      margin-bottom: 40px;
-    }
-    .final-cta-catch .accent { color: var(--gold); }
-
-    /* ──────────────────────────────────────
-       📌 LINK_03: 最終CTA申込ボタン
-       href="YOUR_FORM_URL_HERE" を申込フォームのURLに変更
-    ────────────────────────────────────── */
-    .final-cta .btn-cta {
-      width: 100%;
-      max-width: 520px;
-      font-size: clamp(16px, 2.5vw, 20px);
-      padding: 24px 48px;
-    }
-
-    .final-cta-sub {
-      margin-top: 20px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.05em;
-    }
-
-    .final-cta-deadline {
-      display: inline-block;
-      margin-top: 24px;
-      background: rgba(232,93,4,0.15);
-      border: 1px solid rgba(232,93,4,0.4);
-      color: rgba(255,255,255,0.8);
-      font-size: 13px;
-      padding: 10px 24px;
-      border-radius: 3px;
-      letter-spacing: 0.05em;
-    }
-
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .site-footer {
-      background: var(--navy-deep);
-      border-top: 1px solid rgba(184,151,58,0.15);
-      padding: 40px 0;
-      text-align: center;
-    }
-    .site-footer .footer-name {
-      font-family: var(--font-serif);
-      font-size: 16px;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .site-footer .footer-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.25);
-      letter-spacing: 0.1em;
-    }
-    .site-footer .footer-links {
-      margin-top: 16px;
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .site-footer .footer-links a {
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.05em;
-      transition: color 0.15s;
-    }
-    .site-footer .footer-links a:hover { color: var(--gold); }
-
-
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
-    @media (max-width: 680px) {
-      .profile-inner {
-        grid-template-columns: 1fr;
-      }
-      .profile-photo {
-        max-width: 200px;
-        margin: 0 auto;
-        aspect-ratio: 1/1;
-      }
-      .detail-grid {
-        grid-template-columns: 1fr;
-      }
-      .testimonial-card {
-        grid-template-columns: 72px 1fr;
-      }
-      .stats-row {
-        grid-template-columns: 1fr;
-      }
-      .badge-item {
-        min-width: 100%;
-        border-right: none;
-        border-bottom: 1px solid rgba(184,151,58,0.15);
-      }
-      .badge-item:last-child { border-bottom: none; }
-      .benefit-card {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-      .benefit-body { grid-column: 1; }
-    }
-
-    @media (max-width: 480px) {
-      .container { padding: 0 16px; }
-      .btn-cta { padding: 18px 28px; }
-      .benefit-card { padding: 24px 20px; }
-      .testimonial-content { padding: 20px; }
-      .faq-q { padding: 20px; }
-      .faq-a { padding: 16px 20px 20px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個別診断＆ロードマップ作成 | たいが</title>
+    <style>
+        /* ベース設定 */
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f5f7;
+            margin: 0;
+            padding: 0;
+        }
+        /* LP全体の枠組み（スマホ・PC共通で読みやすく） */
+        .lp-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+        /* 各セクションの共通パディング */
+        section {
+            padding: 40px 20px;
+        }
+        /* 画像プレースホルダーのスタイル */
+        .image-placeholder {
+            background-color: #e2e8f0;
+            border: 2px dashed #a0aec0;
+            color: #4a5568;
+            text-align: center;
+            padding: 50px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        /* -----------------------------------
+           ファーストビュー (FV)
+        ------------------------------------ */
+        .fv-section {
+            background-color: #1a365d;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px 40px;
+        }
+        .fv-target {
+            color: #ecc94b;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+            border: 1px solid #ecc94b;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        .fv-title {
+            font-size: 1.6em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        .fv-subtitle {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        /* -----------------------------------
+           CTAボタン（申し込みボタン）
+        ------------------------------------ */
+        .cta-button {
+            display: block;
+            background-color: #dd6b20;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(221, 107, 32, 0.3);
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+        .cta-button:hover {
+            background-color: #c05621;
+            transform: translateY(-2px);
+        }
+        .cta-note {
+            font-size: 0.8em;
+            text-align: center;
+            color: #718096;
+            margin-top: -10px;
+        }
+        /* -----------------------------------
+           悩み・共感セクション
+        ------------------------------------ */
+        .pain-section {
+            background-color: #f7fafc;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.4em;
+            color: #2d3748;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #3182ce;
+            margin: 15px auto 0;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        .checklist li::before {
+            content: '☑️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+        }
+        /* -----------------------------------
+           解決策セクション
+        ------------------------------------ */
+        .solution-section {
+            background-color: #ffffff;
+        }
+        .highlight {
+            color: #c53030;
+            font-weight: bold;
+        }
+        /* -----------------------------------
+           プロフィールセクション
+        ------------------------------------ */
+        .profile-section {
+            background-color: #edf2f7;
+        }
+        .profile-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .profile-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        /* -----------------------------------
+           募集要項セクション
+        ------------------------------------ */
+        .offer-section {
+            background-color: #ffffff;
+        }
+        .offer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .offer-table th, .offer-table td {
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            text-align: left;
+        }
+        .offer-table th {
+            background-color: #f7fafc;
+            width: 30%;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        .warning-box {
+            background-color: #fffaf0;
+            border-left: 4px solid #dd6b20;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #c05621;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ====================================================
-       STICKY HEADER
-  ==================================================== -->
-  <header class="site-header">
-    <div class="inner">
-      <div class="logo">たいが｜神前智憲</div>
-      <!-- 📌 LINK_04: ヘッダーCTAリンク（スマホ上部の申込ボタン）
-           href="YOUR_FORM_URL_HERE" を申込フォームのURLに変更 -->
-      <a href="YOUR_FORM_URL_HERE" class="header-cta">無料で申し込む</a>
-    </div>
-  </header>
+<div class="lp-wrapper">
 
-
-  <!-- ====================================================
-       BLOCK 1 | HERO
-  ==================================================== -->
-  <section class="hero">
-    <div class="container">
-
-      <div class="hero-eyebrow fade-in">コーチ・カウンセラー向け 無料個別セッション</div>
-
-      <div class="hero-target fade-in">
-        単発セッションの限界を感じているコーチ・カウンセラーへ
-      </div>
-
-      <h1 class="hero-catch fade-in">
-        根本から変える<span class="accent">仕組み</span>が、<br>
-        まだないだけです。
-      </h1>
-
-      <!-- 📌 IMAGE_01: ヒーローセクションのビジュアル画像
-           ─────────────────────────────────────────────
-           推奨: たいがさんのプロフェッショナルなポートレート
-                 またはセッション中の自然な写真
-           推奨サイズ: 幅1200px以上 / 縦横比 16:9 または 4:3
-           配置場所: images/hero-visual.jpg
-
-           ▼ 画像を使う場合は下記のdivと↓のplaceholderを
-             以下のimgタグに置き換えてください ▼
-
-           <div class="hero-image-wrap">
-             <img src="images/hero-visual.jpg" alt="たいが（神前智憲）" />
-           </div>
-           ───────────────────────────────────────────── -->
-      <div class="hero-image-wrap fade-in">
-        <div class="hero-image-placeholder">
-          <span>🖼</span>
-          IMAGE_01<br>ヒーロービジュアル<br>（たいがさんの写真）<br>
-          <small>images/hero-visual.jpg</small>
+    <!-- ▼▼ ファーストビュー ▼▼ -->
+    <section class="fv-section">
+        <span class="fv-target">単発セッションの限界を感じているコーチ・カウンセラーへ</span>
+        <h1 class="fv-title">クライアントが元に戻ってしまうのは、あなたのスキル不足ではありません。<br>「根本から変える仕組み」が、まだないだけです。</h1>
+        <p class="fv-subtitle">脳のしくみ×経営視点で、本当の意味で人の人生を変えられるプロフェッショナルへ。</p>
+        
+        <!-- 【ここにFV画像を挿入】 -->
+        <div class="image-placeholder">
+            【ここにFV画像を挿入】<br>
+            ※たいがさんの写真や、図解イメージなどを配置します。<br>
+            &lt;img src="画像のURL" alt="イメージ" style="width:100%;"&gt; に書き換えてください。
         </div>
-      </div>
 
-      <p class="hero-sub fade-in">
-        あなたのビジネスの「現在地と次の一手」を<br>
-        脳のしくみ × 商社17年の経営視点で、<br>
-        50分で明確にする個別診断セッション（完全無料）
-      </p>
-
-      <div class="hero-session-badge fade-in">
-        <div class="badge-item">
-          <span class="badge-val">50分</span>
-          <span class="badge-label">セッション時間</span>
-        </div>
-        <div class="badge-item">
-          <span class="badge-val">完全無料</span>
-          <span class="badge-label">料金</span>
-        </div>
-        <div class="badge-item">
-          <span class="badge-val">Zoom</span>
-          <span class="badge-label">形式（全国対応）</span>
-        </div>
-        <div class="badge-item">
-          <span class="badge-val">月▲名限定</span>
-          <span class="badge-label">募集人数</span>
-        </div>
-      </div>
-
-      <div class="hero-cta-wrap fade-in">
-        <!-- 📌 LINK_01: ヒーロー申込ボタン
-             href="YOUR_FORM_URL_HERE" を申込フォームのURLに変更 -->
-        <a href="YOUR_FORM_URL_HERE" class="btn-cta">
-          無料で個別診断セッションに申し込む
-          <small>↑ クリックして申込フォームへ（2分で完了）</small>
+        <!-- 【ここに申込フォームのリンクを挿入】 -->
+        <a href="【ここに申込フォームのURLを貼り付けます】" class="cta-button">
+            【毎月限定◯名・無料】<br>個別診断＆ロードマップ作成に申し込む
         </a>
-        <p class="hero-note">売り込みは一切しません｜申込後24時間以内にご連絡します</p>
-      </div>
+        <p class="cta-note" style="color:#a0aec0;">※オンライン（Zoom）50分</p>
+    </section>
 
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       BLOCK 2 | 共感（痛み）
-  ==================================================== -->
-  <section class="pain">
-    <div class="container">
-
-      <span class="section-label fade-in">こんな悩み、ありませんか？</span>
-      <h2 class="section-title fade-in">
-        頑張っているのに、<br>
-        なぜか次につながらない。
-      </h2>
-      <div class="gold-line fade-in"></div>
-
-      <ul class="pain-list">
-        <li class="fade-in">セッションは好評なのに、継続につながらない</li>
-        <li class="fade-in">クライアントが「また戻ってしまう」のが気になる</li>
-        <li class="fade-in">単発で終わって、本当に変わったか自信が持てない</li>
-        <li class="fade-in">バックエンド商品を作りたいが、何から始めればいいかわからない</li>
-        <li class="fade-in">発信・集客に時間を使いすぎていて、消耗している</li>
-        <li class="fade-in">収入は不安定なまま、仕事の未来が見えない</li>
-      </ul>
-
-      <div class="pain-closing fade-in">
-        <p>
-          これらは<span class="em">あなたのスキルや努力が足りないから</span>ではありません。<br>
-          <span class="em">クライアントを根本から変える「仕組み」がない</span>だけです。
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       BLOCK 3 | 原因提示
-  ==================================================== -->
-  <section class="cause">
-    <div class="container">
-
-      <span class="section-label fade-in">なぜそうなるのか</span>
-      <h2 class="section-title fade-in">
-        問題は、スキルでも集客でもなく<br>
-        「根本から変える仕組み」がないことです
-      </h2>
-      <div class="gold-line fade-in"></div>
-
-      <div class="cause-body fade-in">
-        <p>
-          単発セッションがうまくいっても収入が不安定なのは、<br>
-          あなたのコーチング・カウンセリングの質の問題ではありません。
-        </p>
-        <br>
-        <p>
-          クライアントが継続して変わり続けるためには、<br>
-          脳のしくみに基づいた<strong>バックエンドの設計</strong>が必要です。<br>
-          これがないと、どれだけ単発を積み重ねても<br>
-          「また元に戻る」「継続につながらない」が繰り返されます。
-        </p>
-      </div>
-
-      <div class="cause-highlight fade-in">
-        <p>
-          「経営がわかる人間が<br>
-          コーチ・カウンセラーのビジネスをサポートする」<br>
-          これは市場にほぼ存在しない組み合わせです。
-        </p>
-      </div>
-
-      <div class="cause-result fade-in">
-        <p class="cause-result-title">仕組みが整うと——</p>
-        <ul class="cause-result-list">
-          <li>クライアントが本当の意味で、根本から変わる</li>
-          <li>継続率・単価が自然と上がる</li>
-          <li>「やっていてよかった」と思える仕事になる</li>
-          <li>収入が安定し、消耗しなくなる</li>
+    <!-- ▼▼ 悩み・共感 ▼▼ -->
+    <section class="pain-section">
+        <h2 class="section-title">こんなジレンマを抱えていませんか？</h2>
+        <ul class="checklist">
+            <li>セッション直後は良くても、次回にはクライアントが元の状態に戻っている</li>
+            <li>自分が本当の意味でクライアントを変えられているか自信がない</li>
+            <li>毎回フロント集客に追われ、ビジネスとして安定しない</li>
+            <li>バックエンド商品を作りたいが、何を提供すればいいか迷っている</li>
         </ul>
-      </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ▼▼ 解決策 ▼▼ -->
+    <section class="solution-section">
+        <h2 class="section-title">なぜ、熱心にセッションをしても変わらないのか？</h2>
+        <p>それはあなたの思いやりの不足でも、クライアントのやる気不足でもありません。<br><br>
+        <span class="highlight">「脳のしくみに基づいた根本解決の型」</span>と<span class="highlight">「バックエンドの仕組み」</span>の両方が欠けているからです。</p>
 
-
-  <!-- ====================================================
-       BLOCK 4 | セッションで得られること
-  ==================================================== -->
-  <section class="benefit">
-    <div class="container">
-
-      <span class="section-label fade-in" style="color:var(--gold);">この個別診断でわかること</span>
-      <h2 class="section-title-white fade-in">
-        50分で、3つのことが明確になります
-      </h2>
-      <div class="gold-line fade-in"></div>
-
-      <div class="benefit-cards">
-
-        <div class="benefit-card fade-in">
-          <div class="benefit-num">01</div>
-          <div>
-            <div class="benefit-title">あなたのビジネスの「現在地」</div>
-          </div>
-          <div class="benefit-body">
-            どこに詰まっているかを客観的に言語化します。<br>
-            「なんとなく行き詰まっている」が、具体的な課題として見えてきます。
-          </div>
+        <!-- 【ここに図解画像を挿入】 -->
+        <div class="image-placeholder">
+            【ここに図解画像を挿入】<br>
+            ※単発セッションと根本解決の違いを示す図解など
         </div>
 
-        <div class="benefit-card fade-in">
-          <div class="benefit-num">02</div>
-          <div>
-            <div class="benefit-title">クライアントが変わらない「本当の原因」</div>
-          </div>
-          <div class="benefit-body">
-            スキル・仕組み・導線、どこに課題があるかを特定します。<br>
-            脳のしくみの視点から、根本にある問題を明確にします。
-          </div>
+        <p>総合商社17年で培った「経営・仕組み化の視点」と、900名以上との対話・800ページの図解から生まれた「脳のしくみ」。この2つを掛け合わせることで、クライアントを根本から変え、あなた自身のビジネスも安定させることができます。</p>
+    </section>
+
+    <!-- ▼▼ ベネフィット ▼▼ -->
+    <section class="pain-section">
+        <h2 class="section-title">個別診断で得られる3つのこと</h2>
+        <ul class="checklist">
+            <li><strong>現在のボトルネックの見える化</strong><br>あなたのビジネスとセッションにおいて、今どこにブレーキがかかっているのかを明確にします。</li>
+            <li><strong>独自のバックエンド商品の方向性</strong><br>あなたの強みを活かした、クライアントを根本から変える商品の種を見つけます。</li>
+            <li><strong>今後の具体的なステップ</strong><br>本当の意味で人の人生を変えられるプロになるための、あなた専用のロードマップをお渡しします。</li>
+        </ul>
+    </section>
+
+    <!-- ▼▼ プロフィール ▼▼ -->
+    <section class="profile-section">
+        <h2 class="section-title">プロフィール</h2>
+        <div class="profile-box">
+            <!-- 【ここにプロフィール画像を挿入】 -->
+            <div class="image-placeholder">
+                【ここにプロフィール画像を挿入】<br>
+                ※たいがさんのお顔写真
+            </div>
+            <div class="profile-name">たいが｜脳のしくみで人生を設計する</div>
+            <p>■ 総合商社17年 → シリコンバレー → 独立<br>
+            ■ 脳のしくみで「人生の設計図」をつくる<br>
+            ■ 900名が変わった再現性あるしくみ（図解800P）</p>
+            <p style="font-size: 0.9em; margin-top: 15px;">「Want to 100%で生きる人を増やす」というミッションのもと、単発セッションの限界を感じている対人支援者が、本当の意味で人の人生を変えられるプロになるための伴走サポートを行っています。</p>
         </div>
+    </section>
 
-        <div class="benefit-card fade-in">
-          <div class="benefit-num">03</div>
-          <div>
-            <div class="benefit-title">あなたに合った「次の一手」</div>
-          </div>
-          <div class="benefit-body">
-            商社17年×脳のしくみの視点で、あなた専用のロードマップを提示します。<br>
-            「何をすればいいか」が、セッション後すぐに動き出せる形で明確になります。
-          </div>
+    <!-- ▼▼ 募集要項・条件 ▼▼ -->
+    <section class="offer-section">
+        <h2 class="section-title">募集要項</h2>
+        <table class="offer-table">
+            <tr>
+                <th>実施方法</th>
+                <td>オンライン（Zoom）</td>
+            </tr>
+            <tr>
+                <th>所要時間</th>
+                <td>50分</td>
+            </tr>
+            <tr>
+                <th>参加費</th>
+                <td><strong>無料</strong>（プロ層の方への特別なご案内です）</td>
+            </tr>
+        </table>
+
+        <div class="warning-box">
+            <strong>【お申し込み前の確認事項】</strong><br>
+            本気でクライアントを変えたいと願い、自己投資と行動への覚悟がある方を対象としています。そのため、現在ゼロイチの段階で行動量が伴わない方や、集客が全くできていない方のお申し込みは、原則お断りしております。（現状の課題解決に直結しないためです。何卒ご了承ください）
         </div>
+    </section>
 
-      </div>
-
-      <div class="benefit-note fade-in">
-        <span class="em">売り込みは一切しません。</span><br>
-        このセッションだけで「気づき」と「方向性」が得られることを目指しています。
-      </div>
-
-      <div class="benefit-cta fade-in">
-        <!-- 📌 LINK_02: 中間CTA申込ボタン
-             href="YOUR_FORM_URL_HERE" を申込フォームのURLに変更 -->
-        <a href="YOUR_FORM_URL_HERE" class="btn-cta">
-          無料で個別診断セッションに申し込む
-          <small>↑ 残り▲枠｜申込後24時間以内にご連絡します</small>
+    <!-- ▼▼ 最終CTA ▼▼ -->
+    <section class="fv-section" style="padding-top: 40px; padding-bottom: 60px;">
+        <h2 style="font-size: 1.4em; margin-bottom: 20px;">あなたのスキルを、<br>本当の「結果」に変えませんか？</h2>
+        
+        <!-- 【ここに申込フォームのリンクを挿入】 -->
+        <a href="【ここに申込フォームのURLを貼り付けます】" class="cta-button">
+            【毎月限定◯名・無料】<br>個別診断＆ロードマップ作成に申し込む
         </a>
-      </div>
+        <p class="cta-note" style="color:#a0aec0;">※枠が埋まり次第、今月の受付は終了となります。</p>
+    </section>
 
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       BLOCK 5 | 提供者の強み・プロフィール
-  ==================================================== -->
-  <section class="profile">
-    <div class="container">
-
-      <span class="section-label fade-in">提供者について</span>
-      <h2 class="section-title fade-in">
-        なぜ私が提供できるのか
-      </h2>
-      <div class="gold-line fade-in"></div>
-
-      <div class="profile-inner">
-
-        <!-- 📌 IMAGE_02: プロフィール写真
-             ───────────────────────────────────────────
-             推奨: 清潔感のある正面ポートレート
-             推奨サイズ: 600×800px（縦長 3:4）
-             配置場所: images/profile.jpg
-
-             ▼ 画像を使う場合は、divの中身を
-               以下に置き換えてください ▼
-
-             <div class="profile-photo">
-               <img src="0Z1A8594_解像度下げ - コピー.jpg" alt="たいが（神前智憲）のプロフィール写真" />
-             </div>
-             ─────────────────────────────────────────── -->
-        <div class="profile-photo fade-in">
-          <span class="icon">👤</span>
-          IMAGE_02<br>プロフィール写真<br>
-          <small>0Z1A8594_解像度下げ - コピー.jpg</small>
-        </div>
-
-        <div class="fade-in">
-          <div class="profile-label">Breakthrough Producer</div>
-          <div class="profile-name">たいが</div>
-          <div class="profile-name-kana">神前 智憲（こうさき とものり）</div>
-
-          <div class="profile-career">
-            <div class="career-item">
-              <div class="career-icon">🏢</div>
-              総合商社17年（伊藤忠商事）
-            </div>
-            <div class="career-item">
-              <div class="career-icon">🌎</div>
-              シリコンバレーでのビジネス経験
-            </div>
-            <div class="career-item">
-              <div class="career-icon">🧠</div>
-              脳科学×コーチング×カウンセリングを体系化
-            </div>
-            <div class="career-item">
-              <div class="career-icon">📄</div>
-              900名以上との対話／図解800ページのメソッド
-            </div>
-            <div class="career-item">
-              <div class="career-icon">🏭</div>
-              中小企業経営コンサルタントとしても活動
-            </div>
-          </div>
-
-          <div class="profile-strengths">
-            <div class="strength-item">経営がわかる（商社17年・シリコンバレー・町工場コンサル）</div>
-            <div class="strength-item">脳のしくみがわかる（900名・図解800P）</div>
-            <div class="strength-item">個別セッションが得意（週2回・二人三脚の伴走）</div>
-            <div class="strength-item">その人の強みに合ったバックエンド商品づくり</div>
-            <div class="strength-item">メソッドの使用権を提供（自分のクライアントにそのまま使える）</div>
-          </div>
-
-          <div class="profile-rare">
-            「<span class="gold">経営がわかる人間が<br>コーチ・カウンセラーのビジネスをサポートする</span>」<br>
-            この組み合わせは、市場にほぼ存在しません。
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       BLOCK 6 | 実績・受講生の声
-  ==================================================== -->
-  <section class="testimonials">
-    <div class="container">
-
-      <span class="section-label fade-in">実績・受講生の声</span>
-      <h2 class="section-title fade-in">
-        クライアントの変化
-      </h2>
-      <div class="gold-line fade-in"></div>
-
-      <!-- 数字 -->
-      <div class="stats-row fade-in">
-        <div class="stat-box">
-          <span class="stat-val">900名+</span>
-          <span class="stat-label">対話実績</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-val">7〜8割</span>
-          <span class="stat-label">リピート率</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-val">27名</span>
-          <span class="stat-label">2025年<br>個別サポート実績</span>
-        </div>
-      </div>
-
-      <!-- 受講生の声 カード -->
-      <div class="testimonial-cards">
-
-        <!-- 声1 -->
-        <!-- 📌 IMAGE_03: 受講生①の写真
-             配置場所: images/voice-01.jpg
-             ▼ 画像を使う場合はphoto部分のdivを以下に変更 ▼
-             <div class="testimonial-photo">
-               <img src="images/voice-01.jpg" alt="受講生の声①" />
-             </div>
-        -->
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-photo">
-            <span class="t-icon">👤</span>
-            <small>IMAGE_03<br>voice-01.jpg</small>
-          </div>
-          <div class="testimonial-content">
-            <div class="testimonial-meta">
-              <!-- ▼ 受講生のお名前・属性を記入してください ▼ -->
-              <strong>●●さん</strong>　コーチ / ▲▲歳
-            </div>
-            <div class="testimonial-quote">
-              <!-- ▼ 受講生の声のテキストをここに記入してください ▼ -->
-              （受講生の声テキストをここに入れてください。できれば3〜5行程度の具体的な変化を書いていただくと効果的です。）
-            </div>
-            <div class="testimonial-result">単月▲▲万円達成</div>
-          </div>
-        </div>
-
-        <!-- 声2 -->
-        <!-- 📌 IMAGE_04: 受講生②の写真
-             配置場所: images/voice-02.jpg -->
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-photo">
-            <span class="t-icon">👤</span>
-            <small>IMAGE_04<br>voice-02.jpg</small>
-          </div>
-          <div class="testimonial-content">
-            <div class="testimonial-meta">
-              <strong>●●さん</strong>　カウンセラー / ▲▲歳
-            </div>
-            <div class="testimonial-quote">
-              （受講生の声テキストをここに入れてください。）
-            </div>
-            <div class="testimonial-result">バックエンド商品を初めて販売</div>
-          </div>
-        </div>
-
-        <!-- 声3 -->
-        <!-- 📌 IMAGE_05: 受講生③の写真
-             配置場所: images/voice-03.jpg -->
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-photo">
-            <span class="t-icon">👤</span>
-            <small>IMAGE_05<br>voice-03.jpg</small>
-          </div>
-          <div class="testimonial-content">
-            <div class="testimonial-meta">
-              <strong>●●さん</strong>　コーチ・カウンセラー / ▲▲歳
-            </div>
-            <div class="testimonial-quote">
-              （受講生の声テキストをここに入れてください。）
-            </div>
-            <div class="testimonial-result">継続率が大幅に向上</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       BLOCK 7 | セッション詳細・申込の流れ
-  ==================================================== -->
-  <section class="detail">
-    <div class="container">
-
-      <span class="section-label fade-in">セッション詳細</span>
-      <h2 class="section-title fade-in">
-        個別診断＆ロードマップ作成セッション
-      </h2>
-      <div class="gold-line fade-in"></div>
-
-      <div class="detail-grid fade-in">
-        <div class="detail-item">
-          <div class="detail-item-label">所要時間</div>
-          <div class="detail-item-val">50分</div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-item-label">形式</div>
-          <div class="detail-item-val">Zoom <small>（全国・海外対応）</small></div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-item-label">料金</div>
-          <div class="detail-item-val">完全無料</div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-item-label">募集人数</div>
-          <!-- ▼ 実際の枠数を記入してください ▼ -->
-          <div class="detail-item-val">月▲名限定 <small>（手厚くサポートするため）</small></div>
-        </div>
-        <div class="detail-item" style="grid-column: 1 / -1;">
-          <div class="detail-item-label">対象</div>
-          <div class="detail-item-val" style="font-family: var(--font-sans); font-size: 15px; font-weight: 400;">
-            コーチ・カウンセラーとして活動中で、単発セッションの限界を感じている方
-          </div>
-        </div>
-      </div>
-
-      <!-- 📌 IMAGE_06: セッション詳細の補足画像（任意）
-           ───────────────────────────────────────────
-           例: Zoomセッションの雰囲気写真、資料のイメージ等
-           推奨サイズ: 横長 / 860×430px
-           配置場所: images/session-detail.jpg
-
-           ▼ 使う場合は以下のコメントを外してください ▼
-
-      <div style="margin: 32px 0; border-radius:6px; overflow:hidden;">
-        <img src="images/session-detail.jpg" alt="セッションの様子" />
-      </div>
-      ─────────────────────────────────────────── -->
-
-      <h3 class="flow-title fade-in">申し込みから当日までの流れ</h3>
-
-      <div class="flow-steps">
-        <div class="flow-step fade-in">
-          <div class="flow-step-left">
-            <div class="flow-num">1</div>
-            <div class="flow-line"></div>
-          </div>
-          <div class="flow-content">
-            <div class="flow-step-title">申込フォームから申し込む</div>
-            <div class="flow-step-body">下のボタンからフォームに進み、現在の状況をご記入ください（2分で完了）</div>
-          </div>
-        </div>
-        <div class="flow-step fade-in">
-          <div class="flow-step-left">
-            <div class="flow-num">2</div>
-            <div class="flow-line"></div>
-          </div>
-          <div class="flow-content">
-            <div class="flow-step-title">日程調整のご連絡（24時間以内）</div>
-            <div class="flow-step-body">申込後24時間以内に日程調整のメッセージをお送りします</div>
-          </div>
-        </div>
-        <div class="flow-step fade-in">
-          <div class="flow-step-left">
-            <div class="flow-num">3</div>
-            <div class="flow-line"></div>
-          </div>
-          <div class="flow-content">
-            <div class="flow-step-title">Zoomで50分のセッション</div>
-            <div class="flow-step-body">現在地の確認・課題の特定・ロードマップの提示を行います</div>
-          </div>
-        </div>
-        <div class="flow-step fade-in">
-          <div class="flow-step-left">
-            <div class="flow-num">4</div>
-          </div>
-          <div class="flow-content">
-            <div class="flow-step-title">あなた専用のロードマップをお届け</div>
-            <div class="flow-step-body">セッション後、「次の一手」をまとめたロードマップをお届けします</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       BLOCK 8 | FAQ
-  ==================================================== -->
-  <section class="faq">
-    <div class="container">
-
-      <span class="section-label fade-in">よくある質問</span>
-      <h2 class="section-title fade-in">FAQ</h2>
-      <div class="gold-line fade-in"></div>
-
-      <div class="faq-list">
-
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-mark">Q</span>
-            <span class="faq-q-text">売り込みはありますか？</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="faq-a">
-            ありません。このセッションはあなたの現状整理と方向性の確認が目的です。セッション後に何かをご提案する場合も、あくまで一つの選択肢としてお伝えするに留まります。
-          </div>
-        </div>
-
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-mark">Q</span>
-            <span class="faq-q-text">コーチとカウンセラー、両方が対象ですか？</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="faq-a">
-            はい。スキルのジャンルや流派は問いません。「単発セッションの限界を感じている」という状況であれば、コーチ・カウンセラー問わず対象です。
-          </div>
-        </div>
-
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-mark">Q</span>
-            <span class="faq-q-text">開業したばかりでも申し込めますか？</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="faq-a">
-            すでにある程度クライアントがいて、活動実績がある方を優先しています。まだゼロイチの段階の方は、まずLINEで無料動画を視聴し、自己理解を深めることをおすすめします。
-          </div>
-        </div>
-
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-mark">Q</span>
-            <span class="faq-q-text">地方在住でも参加できますか？</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="faq-a">
-            はい、全国どこからでも参加いただけます。ZoomまたはGoogle Meetで実施しますので、インターネット環境があれば問題ありません。
-          </div>
-        </div>
-
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-mark">Q</span>
-            <span class="faq-q-text">セッション後はどうなりますか？</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="faq-a">
-            あなた専用のロードマップをお届けします。その後は、次のステップに進みたいと思われた場合のみ、ご相談ください。押し売りや強引なクロージングは一切しません。
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       BLOCK 9 | 最終CTA
-  ==================================================== -->
-  <section class="final-cta">
-    <div class="container">
-
-      <div class="final-cta-eyebrow fade-in">今すぐ申し込む</div>
-
-      <h2 class="final-cta-catch fade-in">
-        「単発の限界」を超えて、<br>
-        本当の意味で人の人生を<br>
-        <span class="accent">変えられるプロ</span>へ。
-      </h2>
-
-      <!-- 📌 LINK_03: 最終CTA申込ボタン
-           href="YOUR_FORM_URL_HERE" を申込フォームのURLに変更 -->
-      <a href="YOUR_FORM_URL_HERE" class="btn-cta fade-in">
-        無料で個別診断セッションに申し込む
-        <small>↑ 2分で完了｜売り込みなし｜全国Zoom対応</small>
-      </a>
-
-      <!-- ▼ 残り枠・締切がある場合は以下を使ってください ▼ -->
-      <div class="final-cta-deadline fade-in">
-        ⏰ 今月の残り枠：▲名｜締切：▲月▲日（▲）
-      </div>
-
-      <p class="final-cta-sub fade-in">申込後24時間以内にご連絡します</p>
-
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       FOOTER
-  ==================================================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-name">たいが（神前智憲）</div>
-      <div class="footer-links">
-        <!-- ▼ 必要なリンクを追加してください ▼ -->
-        <!-- 📌 LINK_05〜07: フッターリンク
-             href="YOUR_URL" を各ページのURLに変更
-             不要なものは削除してください -->
-        <a href="YOUR_PRIVACY_POLICY_URL">プライバシーポリシー</a>
-        <a href="YOUR_TOKUSHO_URL">特定商取引法に基づく表記</a>
-        <a href="https://www.threads.net/@tigerkosaki" target="_blank" rel="noopener">Threads</a>
-      </div>
-      <div class="footer-copy">&copy; 2026 Tomonori Kousaki. All rights reserved.</div>
-    </div>
-  </footer>
-
-
-  <!-- ====================================================
-       JAVASCRIPT
-  ==================================================== -->
-  <script>
-    // FAQ アコーディオン
-    function toggleFaq(el) {
-      const item = el.parentElement;
-      item.classList.toggle('open');
-    }
-
-    // スクロールアニメーション
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
+</div>
 
 </body>
 </html>
